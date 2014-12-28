@@ -1,14 +1,30 @@
 <?xml version='1.0'?>
 <sets>
-<!-- 'set' defines a group of LEDs that light the same -->
+<!-- 
+  'set' defines a group of LEDs that light the same 
+
+  each LED 'set' runs in it's own thread.
+  -->
 <set>
+ <!-- Used for logging -->
  <name>Green</name>
+ <!-- color for the LED if only one is set -->
+ <!-- See below for how to handle multiple colors -->
  <color>
   <red>0x00</red><green>0x7a</green><blue>0x00</blue>
  </color>
+ <!--
+  Variance defines 'wobble' in the color (+/-) 
+
+  Define color as 7F with wobble of 7F for all 3 for 'random'
+  -->
  <variance>
   <red>0</red><green>5</green><blue>5</blue>
  </variance>
+ <!--
+  All LEDs light with the same base color, but each one gets
+  its own 'random' variance.
+  -->
  <led>2</led><led>3</led><led>5</led><led>6</led><led>8</led><led>9</led>
  <led>11</led><led>12</led><led>14</led><led>15</led><led>17</led><led>18</led>
  <led>20</led><led>21</led><led>23</led><led>24</led><led>26</led><led>27</led><led>29</led>
@@ -36,7 +52,9 @@
 </set>
 <set>
  <name>Rainbow 1</name>
+ <!-- delay for changes in microseconds (1s default) -->
  <delay>100000</delay>
+ <!-- Initial color index (0 default) -->
  <start>0</start>
  <color><red>0x7f</red><green>0x32</green><blue>0x32</blue></color>
  <color><red>0x7f</red><green>0x6e</green><blue>0x32</blue></color>
