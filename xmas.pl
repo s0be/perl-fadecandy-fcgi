@@ -7,7 +7,7 @@ use FCGI;
 
 use OPC;
 use Time::HiRes qw/usleep/;
-use Config; 
+use Config;
 
 use XML::Simple;
 use Data::Dumper;
@@ -37,14 +37,17 @@ if($config->{config}) {
   exit(1);
 }
 
-# TODO: Add config to not start FCGI server, and to 
-# setup the port
-my $socket = FCGI::OpenSocket( ":8888", 5 );
-my $request = FCGI::Request( \*STDIN, \*STDOUT, \*STDERR,
-    \%ENV, $socket );
+my $socket;
+my $request;
+
+if($config->{port}){
+  $socket = FCGI::OpenSocket( $config->{port}[0], 5 );
+  $request = FCGI::Request( \*STDIN, \*STDOUT, \*STDERR,
+      \%ENV, $socket );
+}
 
 my $running = 1;
- 
+
 $SIG{INT} = \&interrupt;
 
 sub interrupt {
@@ -56,7 +59,7 @@ my $client = new OPC('127.0.0.1:7890');
 $client->can_connect();
 
 my @pixels :shared = ();
-my $on :shared = 0;
+my $on :shared = $config->{port} ? 0 : 1;
 
 sub setPixel {
   my $l = shift;
@@ -270,8 +273,9 @@ for(my $i = 0; $i < $ledsetcnt; $i++) {
 
 $thrds[$threadcnt++] = threads->create( \&sendleds );
 
-my $count;
-while( $request->Accept() >= 0 && $running ) {
+if($config->{port}){
+  my $count;
+  while( $request->Accept() >= 0 && $running ) {
     # Massive TODO List:
     # * Template Engine to move html generation out
     # * Add Config File listing to switch LED behaviors
@@ -312,10 +316,13 @@ while( $request->Accept() >= 0 && $running ) {
     }
 
     printf("\n</div></body></html>\n");
+  }
+  $request->Finish();
+  FCGI::CloseSocket( $socket );
+} else {
+  while($running){sleep 1;}
 }
 
-$request->Finish();
-FCGI::CloseSocket( $socket );
 
 foreach my $thr (threads->list()) { $thr->kill('KILL')->detach;    }
 
