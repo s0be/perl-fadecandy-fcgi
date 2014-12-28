@@ -1,0 +1,91 @@
+<?xml version='1.0'?>
+<sets>
+<!-- 'set' defines a group of LEDs that light the same -->
+<set>
+ <name>Green</name>
+ <color>
+  <red>0x00</red><green>0x7a</green><blue>0x00</blue>
+ </color>
+ <variance>
+  <red>0</red><green>5</green><blue>5</blue>
+ </variance>
+ <led>2</led><led>3</led><led>5</led><led>6</led><led>8</led><led>9</led>
+ <led>11</led><led>12</led><led>14</led><led>15</led><led>17</led><led>18</led>
+ <led>20</led><led>21</led><led>23</led><led>24</led><led>26</led><led>27</led><led>29</led>
+ <led>30</led><led>32</led><led>33</led><led>35</led><led>36</led>
+ <led>52</led><led>54</led><led>55</led><led>57</led><led>58</led>
+ <led>60</led><led>61</led><led>63</led><led>64</led><led>66</led><led>67</led><led>69</led>
+ <led>70</led><led>72</led><led>73</led><led>75</led><led>76</led><led>78</led><led>79</led>
+ <led>81</led><led>82</led><led>84</led><led>85</led>
+</set>
+<set>
+ <name>Brown</name>
+ <color>
+  <red>0x40</red><green>0x20</green><blue>0x00</blue>
+ </color>
+ <led>0</led><led>1</led>
+ <led>50</led><led>51</led>
+</set>
+<set>
+ <name>Bad</name>
+ <color><red>0</red><green>0</green><blue>0</blue></color>
+ <color><red>0</red><green>0</green><blue>0</blue></color>
+ <color><red>0</red><green>0</green><blue>0</blue></color>
+ <variance><red>0</red><green>0</green><blue>0</blue></variance>
+ <variance><red>0</red><green>0</green><blue>0</blue></variance>
+</set>
+<set>
+ <name>Rainbow 1</name>
+ <delay>100000</delay>
+ <start>0</start>
+ <color><red>0x7f</red><green>0x32</green><blue>0x32</blue></color>
+ <color><red>0x7f</red><green>0x6e</green><blue>0x32</blue></color>
+ <color><red>0x7f</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x60</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x60</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x7f</blue></color>
+ <color><red>0x32</red><green>0x6e</green><blue>0x7f</blue></color>
+ <color><red>0x32</red><green>0x32</green><blue>0x7f</blue></color>
+ <color><red>0x2d</red><green>0x16</green><blue>0x7f</blue></color>
+ <led>10</led><led>19</led><led>28</led>
+ <led>56</led><led>65</led><led>74</led>
+ <led>83</led>
+</set>
+<set>
+ <name>Rainbow 2</name>
+ <delay>200000</delay>
+ <start>4</start>
+ <color><red>0x7f</red><green>0x32</green><blue>0x32</blue></color>
+ <color><red>0x7f</red><green>0x6e</green><blue>0x32</blue></color>
+ <color><red>0x7f</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x60</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x60</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x7f</blue></color>
+ <color><red>0x32</red><green>0x6e</green><blue>0x7f</blue></color>
+ <color><red>0x32</red><green>0x32</green><blue>0x7f</blue></color>
+ <color><red>0x2d</red><green>0x16</green><blue>0x7f</blue></color>
+ <led>4</led><led>13</led><led>22</led>
+ <led>31</led><led>59</led><led>68</led>
+ <led>77</led><led>86</led>
+</set>
+<set>
+ <name>Rainbow 3</name>
+ <delay>300000</delay>
+ <start>7</start>
+ <color><red>0x7f</red><green>0x32</green><blue>0x32</blue></color>
+ <color><red>0x7f</red><green>0x6e</green><blue>0x32</blue></color>
+ <color><red>0x7f</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x60</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x32</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x60</blue></color>
+ <color><red>0x32</red><green>0x7f</green><blue>0x7f</blue></color>
+ <color><red>0x32</red><green>0x6e</green><blue>0x7f</blue></color>
+ <color><red>0x32</red><green>0x32</green><blue>0x7f</blue></color>
+ <color><red>0x2d</red><green>0x16</green><blue>0x7f</blue></color>
+ <led>7</led><led>16</led><led>25</led>
+ <led>34</led><led>53</led><led>62</led>
+ <led>71</led><led>80</led>
+</set>
+</sets>
